@@ -17,3 +17,119 @@
 	public void handleexaception() {
 		
 	}
+package Alerts;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Alerts {
+
+static WebDriver driver;
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\BRAJMISH\\Documents\\module3\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("file:///C:/Users/BRAJMISH/Documents/module3/hotelbooking.html");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtFirstName")).sendKeys("brajesh");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtLastName")).sendKeys("mishra");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtEmail")).sendKeys("mishra@gmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtPhone")).sendKeys("7895930092");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.tagName("textarea")).sendKeys("Capgemini Inida");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		Select option=new Select(driver.findElement(By.name("city")));
+		option.selectByVisibleText("Pune");;
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+	
+		Select option1=new Select(driver.findElement(By.name("state")));
+		option1.selectByVisibleText("Maharashtra");;
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		Select option2=new Select(driver.findElement(By.name("persons")));
+		option2.selectByVisibleText("1");;
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtCardholderName")).sendKeys("Brajesh Mishra");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtDebit")).sendKeys("7895-9885-4858");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtCvv")).sendKeys("399");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtMonth")).sendKeys("03/15");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.findElement(By.id("txtYear")).sendKeys("2021");
+		Thread.sleep(1000);
+		driver.findElement(By.id("btnPayment")).click();
+		Thread.sleep(1000);
+		handleAlert();
+		
+		driver.quit();
+	}
+	
+public static void handleAlert() {
+	Alert alert=driver.switchTo().alert();
+	System.out.println("Mesagge Is: "+alert.getText());
+	alert.accept();
+		
+}
+	
+}
+
