@@ -133,3 +133,23 @@ public static void handleAlert() {
 	
 }
 
+
+@ResponseStatus(value=HttpStatus.NOT_FOUND)
+	@ExceptionHandler({DuplicateIdException.class})
+	public String  idAlreadyExits(DuplicateIdException e) {
+		return "ID ALREADY EXIST FOR PERSON PLEASE TRY AGAIN";
+	}
+	
+	
+	@ResponseStatus(value=HttpStatus.NOT_FOUND)
+		@ExceptionHandler({IdNotFoundException.class})
+		public String  idNotFound(IdNotFoundException e) {
+			return "ID DOES NOT EXIST FOR PERSON PLEASE TRY AGAIN";
+		}
+		
+		
+		@ResponseStatus(value=HttpStatus.NOT_FOUND)
+		@ExceptionHandler({Exception.class})
+		public String  handleExaception(Exception e) {
+			return "SOMETHING WENT WRONG PLEASE TRY AGAIN";
+		}
